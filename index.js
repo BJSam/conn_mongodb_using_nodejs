@@ -15,6 +15,12 @@ app.use(function (req, res, next) {
 const mongoose= require("mongoose");
 mongoose.connect(uri,{ useNewUrlParser: true , useUnifiedTopology: true } ,(err)=>{if(err)console.log(err); else console.log("connected to mongodb Server");});
 // mongoose.createConnection(uri,{ useUnifiedTopology: true } );
+app.listen( process.env.PORT || 3300, (err) => {
+    if (err)
+      console.log(err);
+    else
+      console.log("listning at 3300");
+  });
 var query = { name: "munna" };
 var Schema = mongoose.Schema;  
        
@@ -61,12 +67,7 @@ app.get('/tdos', function(req, res) {
 });  
 
 
-app.listen( process.env.PORT || 3300, (err) => {
-  if (err)
-    console.log(err);
-  else
-    console.log("listning at 3300");
-});
+
 
 app.get("/", (req, res) => {
    res.send("hii");

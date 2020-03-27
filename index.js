@@ -15,6 +15,7 @@ app.use(function (req, res, next) {
 const mongoose= require("mongoose");
 mongoose.connect(uri,{ useNewUrlParser: true , useUnifiedTopology: true } ,(err)=>{if(err)console.log(err); else console.log("connected to mongodb Server");});
 // mongoose.createConnection(uri,{ useUnifiedTopology: true } );
+app.use(express.static("public"));
 app.listen( process.env.PORT || 3300, (err) => {
     if (err)
       console.log(err);

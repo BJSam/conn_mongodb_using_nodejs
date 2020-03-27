@@ -61,7 +61,7 @@ app.get('/tdos', function(req, res) {
 });  
 
 
-app.listen(3300, (err) => {
+app.listen( process.env.PORT || 3300, (err) => {
   if (err)
     console.log(err);
   else
